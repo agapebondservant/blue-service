@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: blue-service
+  cloud:
+    consul:
+      discovery:
+        instance-id: ${spring.application.name}.${random.value}
+      config:
+        enabled: true
+        format: YAML
+    loadbalancer:
+      ribbon:
+        enabled: true
+server:
+  port: 0
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
